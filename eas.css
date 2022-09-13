@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    /* border: 2px solid black; */
+    border: 2px solid black;
 }
 
 body {
@@ -13,6 +13,35 @@ body {
     background-color: rgba(30, 10, 200, 0.6)
 }
 
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
+    margin: 50px 200px;
+}
+
+.container {
+    margin: 0px;
+    padding: 0px;
+}
+
 #myCanvas {
     background-color: white;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: 20px solid;
+    border-color: rgba(30, 10, 200, 0.65);
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
 }
