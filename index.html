@@ -14,10 +14,19 @@
     </div>
 
     <div class="main">
-        <div class="toolbar"></div>
-        <div class="container">
-            <div id="myCanvas"></div>
+        <div class="toolbar">
+            <button class="color-set">Color</button>
+            <button class="rainbow">Rainbow</button>
+            <button class="shader">Shading</button>
+            <button class="eraser">Eraser</button>
+            <div class="slider-container">
+                <div class="value-container">
+                    <span id="slidervalue">1</span>
+                </div>
+                <input type="range" min="1" max="64" value="2" class="slider" id="myRange">
+            </div>
         </div>
+        <div id="container"></div>
     </div>
 
     <div class="footer">
