@@ -38,6 +38,7 @@ container.addEventListener('click', e => {
     draw();
 });
 
+
 function redrawGrid () {
     let slider = document.querySelector('#myRange');
     let grid = parseInt(slider.value);
@@ -73,10 +74,7 @@ eraser.addEventListener('click', e => {
     eraseGrid();
 });
 
-
-
 function randomColor () {
-    
     let gridItems = document.querySelectorAll('.gridcell')
     gridItems.forEach( gridItem => {
         let x = Math.floor(Math.random() * 255);
@@ -94,4 +92,11 @@ function randomColor () {
 const rgbGrid = document.querySelector('.rainbow');
 rgbGrid.addEventListener('click', e => {
     randomColor();
+});
+
+const gridColor = document.querySelector('.color-set');
+gridColor.addEventListener('click', e => {
+    container.addEventListener('click', e => {
+    draw();
+});
 });
