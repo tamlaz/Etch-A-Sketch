@@ -1,28 +1,54 @@
 let cols;
 let rows;
 let value;
+let gridCell;
 
 let output = document.querySelector('#slidervalue');
 
-let slider = document.querySelector('#myRange').oninput = function() {
-    value = (this.value - this.min)/(this.max - this.min) * 64;
+let slider = document.querySelector('#myRange').addEventListener('input', function() {
     output.textContent =`${this.value} x ${this.value}`;
-    cols = this.value;
-    console.log(cols);
-    rows = this.value;
-    console.log(rows);
-    makeGrid(rows, cols);
+    rows = parseInt(this.value);
+    cols = parseInt(this.value);
     
-}
+});
 
 const container = document.querySelector('#container');
-const makeGrid = (cols, rows) => {
+function makeGrid (rows, cols) {
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
     for (i = 0; i < (rows * cols); i++) {
         let cell = document.createElement('div');
-        container.appendChild(cell).className = "grid-cell"
+        container.appendChild(cell).className = 'gridcell';
     }
 }
 
+function deleteGrid () {
+    let cell = document.querySelectorAll('.gridcell');
+    cell.forEach(cell => {
+        container.removeChild(cell)
+    });
+}
 
+function draw () {
+    let gridItems = document.querySelectorAll('.gridcell')
+    gridItems.forEach( gridItem => {
+        gridItem.addEventListener('mouseover', e => {
+            gridItem.style.backgroundColor = "black";
+        });
+    });
+}
+
+makeGrid(16, 16);
+draw();
+
+function redrawGrid () {
+    let grid = parseInt(prompt('Set the gridsize: ', ''));
+    deleteGrid();
+    makeGrid(grid, grid);
+}
+
+const resizeGrid = document.querySelector('#resetgrid');
+resizeGrid.addEventListener('click', e => {
+    redrawGrid();
+    draw();
+});
