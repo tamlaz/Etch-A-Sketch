@@ -43,6 +43,12 @@ button {
     font-weight: 700;
 }
 
+.color-picker {
+    border: 2px solid black;
+    background-color: transparent;
+    width: 170px;
+    height: 30px;
+}
 .slider-container {
     display: flex;
     flex-direction: column;
