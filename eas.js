@@ -22,22 +22,26 @@ function deleteGrid () {
     });
 }
 
+const colorPicker = document.querySelector('.color-picker');
+colorPicker.addEventListener('input', e => {
+    draw();
+})
+
 function draw () {
     let gridItems = document.querySelectorAll('.gridcell')
     gridItems.forEach( gridItem => {
         container.addEventListener('click', e => {
             gridItem.addEventListener('mouseover', e => {
-                gridItem.style.backgroundColor = "black";
+                gridItem.style.backgroundColor = colorPicker.value;
             });
         });
     });
 }
 
 makeGrid(16, 16);
-container.addEventListener('click', e => {
-    draw();
-});
-
+// container.addEventListener('click', e => {
+//     draw();
+// });
 
 function redrawGrid () {
     let slider = document.querySelector('#myRange');
@@ -61,7 +65,7 @@ resizeGrid.addEventListener('click', e => {
 function eraseGrid() {
     let gridItems = document.querySelectorAll('.gridcell')
     gridItems.forEach( gridItem => {
-        container.addEventListener('mouseover', e => {
+        container.addEventListener('click', e => {
             gridItem.addEventListener('mouseover', e => {
                 gridItem.style.backgroundColor = "white";
             });
@@ -77,26 +81,33 @@ eraser.addEventListener('click', e => {
 function randomColor () {
     let gridItems = document.querySelectorAll('.gridcell')
     gridItems.forEach( gridItem => {
-        let x = Math.floor(Math.random() * 255);
-        let y = Math.floor(Math.random() * 255);
-        let z = Math.floor(Math.random() * 255);
-        let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+        let bgColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
         container.addEventListener('click', e => {
             gridItem.addEventListener('mouseover', e => {
-                gridItem.style.backgroundColor = bgColor;
+                gridItem.style.background = bgColor;
             });
         });
     });
 }
 
-const rgbGrid = document.querySelector('.rainbow');
-rgbGrid.addEventListener('click', e => {
+const rainbowGrid = document.querySelector('.rainbow');
+rainbowGrid.addEventListener('click', e => {
     randomColor();
 });
 
-const gridColor = document.querySelector('.color-set');
-gridColor.addEventListener('click', e => {
-    container.addEventListener('click', e => {
-    draw();
-});
+function shadingGrid() {
+    let gridItems = document.querySelectorAll('.gridcell')
+    gridItems.forEach( gridItem => {
+        container.addEventListener('click', e => {
+            gridItem.addEventListener('mouseover', e => {
+                const currentOpacity = Number(gridItem.style.opacity);
+                    gridItem.style.opacity = Number(currentOpacity) - 0.1;
+            });
+        });
+    });
+}
+
+const gridShader = document.querySelector('.shader');
+gridShader.addEventListener('click', e => {
+    shadingGrid();
 });
