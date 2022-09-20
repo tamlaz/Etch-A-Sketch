@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    border: 0.5px solid red;
 }
 
 body {
@@ -21,7 +22,7 @@ body {
     flex: 1;
     display: flex;
     gap: 30px;
-    justify-content: center;
+    justify-content: space-around;
     margin: 50px 200px;
 }
 
@@ -43,6 +44,46 @@ button {
     font-weight: 700;
 }
 
+.color-setter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 170px;
+    font-weight: 700;
+    margin-top: 0px;
+}
+
+.instruction {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: transparent;
+    width: 170px;
+    height: 50px;
+    font-size: 18;
+    font-weight: 700;
+    margin-bottom: 0px;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    @keyframes effect {
+        0% {
+            background: linear-gradient(
+                    #008000, #00FF00);
+            -webkit-background-clip: text;
+        }
+
+        100% {
+            background: linear-gradient(
+                    #3CE7D7, #000FFF);
+            -webkit-background-clip: text;
+        }
+    }
+}
+
 .color-picker {
     border: 2px solid black;
     background-color: transparent;
@@ -60,9 +101,16 @@ button {
     margin-bottom: 10px;
 }
 
+.sliderbox {
+    display: flex;
+    justify-content: center;
+    width: 170px;
+    height: 20px;
+}
+
 #slidervalue {
     color: black;
-    font-weight: 700;
+    font-size: 18;
 }
 
 .slider {
