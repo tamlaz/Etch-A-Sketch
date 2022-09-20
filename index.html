@@ -15,16 +15,23 @@
 
     <div class="main">
         <div class="toolbar">
-            <button class="color-set">Color</button>
-            <input type="color" class="color-picker">
+            <div class="color-setter">
+                <div class="instruction">
+                    <div class="text">For drawing, first pick a color:</div>
+                </div>
+                
+            </div>
+            <input type="color" class="color-picker" value="#000000">
             <button class="rainbow">Rainbow</button>
             <button class="shader">Shading</button>
             <button class="eraser">Eraser</button>
             <div class="slider-container">
                 <div class="value-container">
-                    <span id="slidervalue">Select grid number, current: 16x16</span>
+                    <div class="sliderbox">
+                        <span id="slidervalue">Grid number: 16x16</span>
+                    </div>
                 </div>
-                <input type="range" min="1" max="64" value="2" class="slider" id="myRange">
+                <input type="range" min="1" max="64" value="16" class="slider" id="myRange">
                 <button id="resetgrid">Reset</button>
             </div>
         </div>
