@@ -99,9 +99,9 @@ function shadingGrid() {
     let gridItems = document.querySelectorAll('.gridcell')
     gridItems.forEach( gridItem => {
         container.addEventListener('click', e => {
-            gridItem.addEventListener('mouseover', e => {
+            gridItem.addEventListener('mouseenter', e => {
                 const currentOpacity = Number(gridItem.style.opacity);
-                    gridItem.style.opacity = Number(currentOpacity) - 0.1;
+                    gridItem.style.opacity = Number(currentOpacity) + 0.1;
             });
         });
     });
